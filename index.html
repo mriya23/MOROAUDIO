@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moro Audio - Penyewaan Tenda Hajatan Profesional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%);
+        }
+        
+        .cta-gradient {
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+   <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900">MORO AUDIO</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link px-3 py-2 text-sm font-medium text-gray-900 hover:text-indigo-600 transition-colors duration-300">Beranda</a>
+                    <a href="#layanan" class="nav-link px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300">Layanan</a>
+                    <a href="#produk" class="nav-link px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300">Produk</a>
+                    <a href="#testimoni" class="nav-link px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300">Testimoni</a>
+                    <a href="#kontak" class="nav-link px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300">Kontak</a>
+                </div>
+                <div class="flex items-center">
+                    <a href="#kontak" class="ml-6 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <style>
+    /* Animation styles */
+    .nav-link {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #4f46e5; /* indigo-600 */
+        transition: width 0.3s ease, left 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+        width: 100%;
+        left: 0;
+    }
+    
+    .nav-link.active {
+        color: #4f46e5 !important;
+    }
+    
+    .nav-link.active::after {
+        width: 100%;
+        left: 0;
+    }
+    
+    /* Section animation when scrolled to */
+    section {
+        scroll-margin-top: 4rem; /* Adjust based on your navbar height */
+    }
+    
+    /* Smooth scrolling for the whole page */
+    html {
+        scroll-behavior: smooth;
+    }
+    </style>
+
+    <script>
+    // Add click event listeners to nav links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Remove active class from all links
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('text-gray-500');
+                el.classList.remove('text-gray-900');
+            });
+            
+            // Add active class to clicked link
+            this.classList.add('active');
+            this.classList.remove('text-gray-500');
+            this.classList.add('text-gray-900');
+            
+            // Get target section
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            // Scroll to section with smooth behavior
+            if(targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Update active link based on scroll position
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY + 100;
+        
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    link.classList.add('text-gray-500');
+                    link.classList.remove('text-gray-900');
+                    
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('active');
+                        link.classList.remove('text-gray-500');
+                        link.classList.add('text-gray-900');
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Sewa Tenda Hajatan Profesional dengan <span class="text-indigo-300">Moro Audio</span></h1>
+                    <p class="text-xl mb-8 text-gray-300">Solusi lengkap untuk acara pernikahan, khitanan, syukuran dan berbagai acara penting lainnya dengan kualitas terbaik dan pelayanan memuaskan.</p>
+                    <div class="flex space-x-4">
+                        <a href="#produk" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-md font-medium">Lihat Produk</a>
+                        <a href="#kontak" class="px-8 py-3 bg-transparent border-2 border-indigo-400 hover:bg-indigo-500 rounded-md font-medium">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Unggulan -->
+    <section id="layanan" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Layanan Unggulan Kami</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Kami menyediakan berbagai layanan profesional untuk menjadikan acara Anda istimewa dan berkesan</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-campground text-indigo-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Sewa Tenda Profesional</h3>
+                    <p class="text-gray-600 text-center">Berbagai jenis tenda dengan ukuran dan model yang disesuaikan dengan kebutuhan acara Anda</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-music text-indigo-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Sound System Lengkap</h3>
+                    <p class="text-gray-600 text-center">Perangkat audio profesional dengan kualitas terbaik untuk hiburan dan pengumuman acara</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-lightbulb text-indigo-600 text-2xl"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Penerangan Premium</h3>
+                    <p class="text-gray-600 text-center">Sistem penerangan yang modern dan elegan untuk menciptakan atmosfer yang sempurna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Produk Kami -->
+<section id="produk" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Produk Kami</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Berbagai pilihan produk berkualitas dengan harga kompetitif</p>
+        </div>
+        
+        <!-- Horizontal Scrolling Container -->
+        <div class="relative">
+            <div class="flex overflow-x-auto pb-6 scrollbar-hide space-x-4">
+                <!-- Product 1 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda1.png" alt="Tenda Sarnafil Premium" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda2.png" alt="Tenda Minimalis Modern" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda3.png" alt="Sound System Profesional" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda4.png" alt="Tenda VIP Exclusive" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda5.png" alt="Lighting Package" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda6.png" alt="Tenda Rapat" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda7.png" alt="Paket Wedding" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda8.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda9.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda10.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="flex-shrink-0 w-64 h-72">
+                    <img src="images/tenda11.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="#kontak" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700">
+                Lihat Paket Lainnya
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Keunggulan -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <img src="/images/tandatanya.jpg" alt="Tim profesional Moro Audio sedang merakit tenda dengan peralatan lengkap di lokasi acara" class="rounded-lg shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Mengapa Memilih Moro Audio?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Tim Profesional</h3>
+                                <p class="mt-1 text-gray-600">Tim berpengalaman siap membantu dari persiapan hingga pelaksanaan acara</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Perlengkapan Berkualitas</h3>
+                                <p class="mt-1 text-gray-600">Menggunakan peralatan terbaik dengan standar tinggi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Harga Kompetitif</h3>
+                                <p class="mt-1 text-gray-600">Penawaran harga terbaik dengan kualitas premium</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Pelayanan 24 Jam</h3>
+                                <p class="mt-1 text-gray-600">Layanan konsultasi dan darurat siap membantu kapan saja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Apa Kata Mereka?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Testimoni dari pelanggan yang sudah menggunakan layanan kami</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimoni 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ivan Chaerul</h4>
+                            <p class="text-sm text-gray-500">Acara Pernikahan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sangat puas dengan pelayanan Moro Audio. Tenda yang disewakan sangat bagus dan sound system-nya jernih. Timnya juga profesional dan ramah."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Atika Sari</h4>
+                            <p class="text-sm text-gray-500">Acara Khitanan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Harga sangat reasonable untuk kualitas tenda dan sound system yang diberikan. Proses sewa mudah dan mereka datang tepat waktu. Recommended!"</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Rizqy Jayakarta</h4>
+                            <p class="text-sm text-gray-500">Acara Kantor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sudah beberapa kali menggunakan jasa Moro Audio dan selalu memberikan kepuasan. Perlengkapan selalu dalam kondisi baik dan siap pakai."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 cta-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Siap Membuat Acara Anda Lebih Istimewa?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Hubungi tim kami sekarang untuk konsultasi dan pemesanan perlengkapan tenda hajatan</p>
+            <a href="https://wa.me/62859160008544" class="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-100 shadow-lg">
+                <i class="fab fa-whatsapp mr-2 text-green-500"></i>
+                Hubungi via WhatsApp
+            </a>
+        </div>
+    </section>
+
+            <!-- Kontak & Lokasi -->
+    <section id="kontak" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Hubungi Kami</h2>
+                    <p class="text-gray-600 mb-8">Silakan hubungi kami langsung melalui kontak yang tersedia</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Lokasi Kami</h3>
+                                <p class="mt-1 text-gray-600">Dusun Ceger No.mor 11, RT.04/RW.01, Ciberangakan, Tayemtimur, Kec. Karangpucung, Kabupaten Cilacap, Jawa Tengah 53255</p>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Dusun+Ceger+No.mor+11,+RT.04/RW.01,+Ciberangakan,+Tayemtimur,+Kec.+Karangpucung,+Kabupaten+Cilacap,+Jawa+Tengah+53255" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="text-indigo-600 hover:text-indigo-800 mt-2 inline-flex items-center">
+                                    <i class="fas fa-directions mr-2"></i> Dapatkan Petunjuk Arah
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-phone-alt text-indigo-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Telepon</h3>
+                                <p class="mt-1 text-gray-600">+62 859-1600-08544 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-clock text-indigo-600"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Jam Operasional</h3>
+                                <p class="mt-1 text-gray-600">Senin - Minggu: 08.00 - 22.00 WIB</p>
+                                <p class="mt-1 text-gray-600">24 Jam untuk Emergency Call</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps Section -->
+                <div class="md:w-1/2">
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Dusun+Ceger+No.mor+11,+RT.04/RW.01,+Ciberangakan,+Tayemtimur,+Kec.+Karangpucung,+Kabupaten+Cilacap,+Jawa+Tengah+53255" 
+                       target="_blank" 
+                       rel="noopener noreferrer">
+                        <div class="bg-white rounded-xl shadow-md h-full overflow-hidden">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.073018600079!2d108.84967277499213!3d-7.779770192242041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6523a7b3b6a9a5%3A0x1a1b5e5d5e5d5e5d!2sHWM6%2BHJ%20Tayemtimur%2C%20Karangpucung%2C%20Cilacap%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1623394257723!5m2!1sen!2sid"
+                                width="100%" 
+                                height="400" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy"
+                                class="rounded-xl hover:opacity-90 transition-opacity"
+                                title="Lokasi Moro Audio di Karangpucung, Cilacap">
+                            </iframe>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© 2023 Moro Audio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/62859160008544" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+</body>
+</html>
