@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moro Audio - Penyewaan Tenda Hajatan Profesional</title>
+
+    <!-- SECURITY META (frontend-level / fallback) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' https: data:; 
+                   script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; 
+                   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.tailwindcss.com; 
+                   img-src 'self' data: https:; 
+                   font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; 
+                   frame-src https://www.google.com https://www.google.co.id;
+                   object-src 'none'; 
+                   base-uri 'self'; 
+                   form-action 'self' https://wa.me;">
+    
+    <!-- Fonts & CSS / CDN -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #111827 0%, #1e3a8a 100%);
+        }
+
+        .cta-gradient {
+            background: linear-gradient(to right, #4f46e5, #7c3aed);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.03);
+        }
+
+        /* Nav animations */
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #4f46e5;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .nav-link.active {
+            color: #4f46e5 !important;
+        }
+
+        section {
+            scroll-margin-top: 4rem;
+        }
+
+        /* Animation classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-left.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .slide-in-right.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-in {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .scale-in.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .bounce-in {
+            opacity: 0;
+            transform: scale(0.3);
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .bounce-in.animate {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stagger {
+            transition-delay: 0s;
+        }
+
+        .stagger:nth-child(2) {
+            transition-delay: 0.2s;
+        }
+
+        .stagger:nth-child(3) {
+            transition-delay: 0.4s;
+        }
+
+        .stagger:nth-child(4) {
+            transition-delay: 0.6s;
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Pulse animation */
+        @keyframes pulse-custom {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        .pulse-custom {
+            animation: pulse-custom 2s ease-in-out infinite;
+        }
+
+        /* Typing animation */
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #4f46e5;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typewriter 4s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #4f46e5; }
+        }
+
+        /* Rotate animation for icons */
+        .rotate-hover:hover {
+            transform: rotate(360deg);
+            transition: transform 0.5s ease;
+        }
+
+        /* Shine effect */
+        .shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .shine:hover::after {
+            left: 100%;
+        }
+
+        /* Product image hover effects */
+        .product-hover {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(79, 70, 229, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .product-hover:hover::before {
+            opacity: 1;
+        }
+
+        .product-hover:hover {
+            transform: scale(1.05);
+        }
+
+        /* Click animations */
+        .click-bounce {
+            animation: clickBounce 0.3s ease;
+        }
+
+        @keyframes clickBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
+
+        .click-ripple {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(0);
+            animation: rippleAnimation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleAnimation {
+            to {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        .navbar-highlight {
+            position: relative;
+        }
+
+        .navbar-highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(79, 70, 229, 0.1);
+            border-radius: 4px;
+            transform: scale(0);
+            transition: transform 0.2s ease;
+        }
+
+        .navbar-highlight.active::before {
+            transform: scale(1);
+        }
+
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .section-fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+   <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <span class="text-xl font-bold text-gray-900 fade-in">MORO AUDIO</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="nav-link navbar-highlight px-3 py-2 text-sm font-medium text-gray-900 hover:text-indigo-600 transition-colors duration-300 fade-in stagger click-ripple">Beranda</a>
+                    <a href="#layanan" class="nav-link navbar-highlight px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300 fade-in stagger click-ripple">Layanan</a>
+                    <a href="#produk" class="nav-link navbar-highlight px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300 fade-in stagger click-ripple">Produk</a>
+                    <a href="#testimoni" class="nav-link navbar-highlight px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300 fade-in stagger click-ripple">Testimoni</a>
+                    <a href="#kontak" class="nav-link navbar-highlight px-3 py-2 text-sm font-medium text-gray-500 hover:text-indigo-600 transition-colors duration-300 fade-in stagger click-ripple">Kontak</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 pb-20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4 slide-in-left">Sewa Tenda Hajatan Profesional dengan <span class="text-indigo-300 typewriter">Moro Audio</span></h1>
+                    <p class="text-xl mb-8 text-gray-300 fade-in">Solusi lengkap untuk acara pernikahan, khitanan, syukuran dan berbagai acara penting lainnya dengan kualitas terbaik dan pelayanan memuaskan.</p>
+                    <div class="flex space-x-4 slide-in-left">
+                        <a href="#produk" class="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-md font-medium shine click-ripple hero-btn">Lihat Produk</a>
+                        <a href="#kontak" class="px-8 py-3 bg-transparent border-2 border-indigo-400 hover:bg-indigo-500 rounded-md font-medium pulse-custom click-ripple hero-btn">Pesan Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Layanan Unggulan -->
+    <section id="layanan" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in">Layanan Unggulan Kami</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in">Kami menyediakan berbagai layanan profesional untuk menjadikan acara Anda istimewa dan berkesan</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover scale-in stagger">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-campground text-indigo-600 text-2xl rotate-hover"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Sewa Tenda Profesional</h3>
+                    <p class="text-gray-600 text-center">Berbagai jenis tenda dengan ukuran dan model yang disesuaikan dengan kebutuhan acara Anda</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover scale-in stagger">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-music text-indigo-600 text-2xl rotate-hover"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Sound System Lengkap</h3>
+                    <p class="text-gray-600 text-center">Perangkat audio profesional dengan kualitas terbaik untuk hiburan dan pengumuman acara</p>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 card-hover scale-in stagger">
+                    <div class="flex justify-center mb-6">
+                        <div class="bg-indigo-100 p-4 rounded-full">
+                            <i class="fas fa-lightbulb text-indigo-600 text-2xl rotate-hover"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 text-center mb-3">Penerangan Premium</h3>
+                    <p class="text-gray-600 text-center">Sistem penerangan yang modern dan elegan untuk menciptakan atmosfer yang sempurna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Produk Kami -->
+<section id="produk" class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in">Produk Kami</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in">Berbagai pilihan produk berkualitas dengan harga kompetitif</p>
+        </div>
+        
+        <!-- Horizontal Scrolling Container -->
+        <div class="relative">
+            <div class="flex overflow-x-auto pb-6 scrollbar-hide space-x-4 product-container">
+                <!-- Product images (lazy) -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda1.png" loading="lazy" alt="Tenda Sarnafil Premium" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda2.png" loading="lazy" alt="Tenda Minimalis Modern" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda3.png" loading="lazy" alt="Sound System Profesional" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda4.png" loading="lazy" alt="Tenda VIP Exclusive" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                <!-- Product 5 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda5.png" alt="Lighting Package" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda6.png" alt="Tenda Rapat" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda7.png" alt="Paket Wedding" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda8.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 9 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda9.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 10 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda10.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+                
+                <!-- Product 11 -->
+                <div class="flex-shrink-0 w-64 h-72 bounce-in stagger">
+                    <img src="images/tenda11.png" alt="Generator Listrik" class="w-full h-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 product-hover">
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a href="#kontak" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 shine float-animation" rel="noopener noreferrer">
+                Lihat Paket Lainnya
+                <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- Keunggulan -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 slide-in-left">
+                    <img src="/images/tandatanya.jpg" loading="lazy" alt="Tim profesional Moro Audio sedang merakit tenda dengan peralatan lengkap di lokasi acara" class="rounded-lg shadow-xl product-hover">
+                </div>
+                <div class="md:w-1/2 md:pl-12 slide-in-right">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Mengapa Memilih Moro Audio?</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex fade-in stagger">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600 rotate-hover"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Tim Profesional</h3>
+                                <p class="mt-1 text-gray-600">Tim berpengalaman siap membantu dari persiapan hingga pelaksanaan acara</p>
+                            </div>
+                        </div>
+                        <div class="flex fade-in stagger">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600 rotate-hover"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Perlengkapan Berkualitas</h3>
+                                <p class="mt-1 text-gray-600">Menggunakan peralatan terbaik dengan standar tinggi</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex fade-in stagger">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600 rotate-hover"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Harga Kompetitif</h3>
+                                <p class="mt-1 text-gray-600">Penawaran harga terbaik dengan kualitas premium</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex fade-in stagger">
+                            <div class="flex-shrink-0">
+                                <div class="bg-indigo-100 p-2 rounded-full">
+                                    <i class="fas fa-check text-indigo-600 rotate-hover"></i>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-lg font-medium text-gray-900">Pelayanan 24 Jam</h3>
+                                <p class="mt-1 text-gray-600">Layanan konsultasi dan darurat siap membantu kapan saja</p>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni -->
+    <section id="testimoni" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4 fade-in">Apa Kata Mereka?</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto fade-in">Testimoni dari pelanggan yang sudah menggunakan layanan kami</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimoni 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card scale-in stagger">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Ivan Chaerul</h4>
+                            <p class="text-sm text-gray-500">Acara Pernikahan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sangat puas dengan pelayanan Moro Audio. Tenda yang disewakan sangat bagus dan sound system-nya jernih. Timnya juga profesional dan ramah."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card scale-in stagger">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Atika Sari</h4>
+                            <p class="text-sm text-gray-500">Acara Khitanan</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Harga sangat reasonable untuk kualitas tenda dan sound system yang diberikan. Proses sewa mudah dan mereka datang tepat waktu. Recommended!"</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimoni 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md testimonial-card scale-in stagger">
+                    <div class="flex items-center mb-4">
+                        <div class="h-12 w-12 rounded-full bg-indigo-100 flex items-center justify-center">
+                            <i class="fas fa-user text-indigo-600"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-semibold">Rizqy Jayakarta</h4>
+                            <p class="text-sm text-gray-500">Acara Kantor</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">"Sudah beberapa kali menggunakan jasa Moro Audio dan selalu memberikan kepuasan. Perlengkapan selalu dalam kondisi baik dan siap pakai."</p>
+                    <div class="mt-4 flex">
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                        <i class="fas fa-star text-yellow-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 cta-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6 fade-in">Siap Membuat Acara Anda Lebih Istimewa?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto fade-in">Hubungi tim kami sekarang untuk konsultasi dan pemesanan perlengkapan tenda hajatan</p>
+            <a href="https://wa.me/62859160008544" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-8 py-4 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-100 shadow-lg bounce-in">
+                <i class="fab fa-whatsapp mr-2 text-green-500"></i>
+                Hubungi via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- Kontak & Lokasi -->
+    <section id="kontak" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-12 slide-in-left">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Hubungi Kami</h2>
+                    <p class="text-gray-600 mb-8">Silakan hubungi kami langsung melalui kontak yang tersedia</p>
+                    <div class="space-y-4">
+                        <div class="flex items-start fade-in stagger">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-map-marker-alt text-indigo-600 rotate-hover"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Lokasi Kami</h3>
+                                <p class="mt-1 text-gray-600">Dusun Ceger Nomor 11, RT.04/RW.01, Ciberangakan, Tayemtimur, Kec. Karangpucung, Kabupaten Cilacap, Jawa Tengah 53255</p>
+                                <a href="https://www.google.com/maps/dir/?api=1&destination=Dusun+Ceger+No.mor+11,+RT.04/RW.01,+Ciberangakan,+Tayemtimur,+Kec.+Karangpucung,+Kabupaten+Cilacap,+Jawa+Tengah+53255" target="_blank" rel="noopener noreferrer" class="text-indigo-600 hover:text-indigo-800 mt-2 inline-flex items-center shine">
+                                    <i class="fas fa-directions mr-2"></i> Dapatkan Petunjuk Arah
+                                </a>
+                            </div>
+                        </div>
+                        <div class="flex items-start fade-in stagger">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-phone-alt text-indigo-600 rotate-hover"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Telepon</h3>
+                                <p class="mt-1 text-gray-600">+62 859-1600-08544 (WhatsApp)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start fade-in stagger">
+                            <div class="flex-shrink-0 bg-indigo-100 p-3 rounded-full">
+                                <i class="fas fa-clock text-indigo-600 rotate-hover"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-medium text-gray-900">Jam Operasional</h3>
+                                <p class="mt-1 text-gray-600">Senin - Minggu: 08.00 - 22.00 WIB</p>
+                                <p class="mt-1 text-gray-600">24 Jam untuk Emergency Call</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Google Maps Section -->
+                <div class="md:w-1/2 slide-in-right">
+                    <div class="bg-white rounded-xl shadow-md h-full overflow-hidden">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.073018600079!2d108.84967277499213!3d-7.779770192242041!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6523a7b3b6a9a5%3A0x1a1b5e5d5e5d5e5d!2sHWM6%2BHJ%20Tayemtimur%2C%20Karangpucung%2C%20Cilacap%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1623394257723!5m2!1sen!2sid"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            class="rounded-xl"
+                            title="Lokasi Moro Audio di Karangpucung, Cilacap">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400 text-sm fade-in">© 2025 Moro Audio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/62859160008544" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors duration-300 z-50 float-animation pulse-custom" aria-label="Hubungi via WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+    'use strict';
+
+    // Redirect to HTTPS (only if not localhost)
+    (function ensureHttps() {
+        try {
+            if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+                location.replace(location.href.replace('http:', 'https:'));
+            }
+        } catch (e) {
+            console.warn('HTTPS redirect failed', e);
+        }
+    })();
+
+    // Small helpers to prevent XSS
+    function escapeHtml(unsafe) {
+        if (unsafe === null || unsafe === undefined) return '';
+        return String(unsafe)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    function sanitize(str) {
+        if (typeof str !== 'string') return '';
+        return str.replace(/<[^>]*>?/gm, '').trim();
+    }
+
+    // Navigation click animations and smooth scrolling
+    function initNavClickAnimations() {
+        const heroButtons = document.querySelectorAll('.hero-btn');
+        
+        // Add ripple effect to clickable elements
+        function createRipple(event, element) {
+            const circle = document.createElement('span');
+            const diameter = Math.max(element.clientWidth, element.clientHeight);
+            const radius = diameter / 2;
+            
+            const rect = element.getBoundingClientRect();
+            const x = event.clientX - rect.left - radius;
+            const y = event.clientY - rect.top - radius;
+            
+            circle.style.width = circle.style.height = diameter + 'px';
+            circle.style.left = x + 'px';
+            circle.style.top = y + 'px';
+            circle.classList.add('ripple-effect');
+            
+            element.appendChild(circle);
+            
+            setTimeout(() => {
+                circle.remove();
+            }, 600);
+        }
+
+        // Add click animations to hero buttons
+        heroButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    
+                    // Add click bounce effect
+                    this.classList.add('click-bounce');
+                    setTimeout(() => {
+                        this.classList.remove('click-bounce');
+                    }, 300);
+                    
+                    // Create ripple effect
+                    createRipple(e, this);
+                    
+                    // Smooth scroll to target
+                    setTimeout(() => {
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 150);
+                }
+            });
+        });
+    }
+
+    // Text reveal animation
+    function initTextReveal() {
+        const textElements = document.querySelectorAll('.typewriter');
+        textElements.forEach(element => {
+            const text = element.textContent;
+            element.textContent = '';
+            element.style.borderRight = '3px solid #4f46e5';
+            
+            let i = 0;
+            const timer = setInterval(() => {
+                element.textContent += text.charAt(i);
+                i++;
+                if (i >= text.length) {
+                    clearInterval(timer);
+                    setTimeout(() => {
+                        element.style.borderRight = 'none';
+                    }, 1000);
+                }
+            }, 100);
+        });
+    }
+
+    // Product carousel auto-scroll
+    function initProductCarousel() {
+        const container = document.querySelector('.product-container');
+        if (container) {
+            let isScrolling = false;
+            let scrollDirection = 1;
+            
+            const autoScroll = () => {
+                if (!isScrolling) {
+                    container.scrollLeft += scrollDirection * 2;
+                    
+                    if (container.scrollLeft >= container.scrollWidth - container.clientWidth - 10) {
+                        scrollDirection = -1;
+                    } else if (container.scrollLeft <= 0) {
+                        scrollDirection = 1;
+                    }
+                }
+            };
+            
+            const scrollInterval = setInterval(autoScroll, 50);
+            
+            container.addEventListener('mouseenter', () => {
+                isScrolling = true;
+            }, { passive: true });
+            
+            container.addEventListener('mouseleave', () => {
+                isScrolling = false;
+            }, { passive: true });
+        }
+    }
+
+    // Random floating animation for service cards
+    function initFloatingCards() {
+        const cards = document.querySelectorAll('.card-hover');
+        cards.forEach((card, index) => {
+            const delay = index * 0.5;
+            card.style.animationDelay = `${delay}s`;
+            
+            setInterval(() => {
+                if (!card.matches(':hover')) {
+                    const randomX = (Math.random() - 0.5) * 2;
+                    const randomY = (Math.random() - 0.5) * 2;
+                    card.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                    
+                    setTimeout(() => {
+                        if (!card.matches(':hover')) {
+                            card.style.transform = 'translate(0, 0)';
+                        }
+                    }, 1000);
+                }
+            }, 3000 + index * 1000);
+        });
+    }
+
+    // Smooth reveal for testimonials
+    function initTestimonialReveal() {
+        const testimonials = document.querySelectorAll('.testimonial-card');
+        testimonials.forEach((card, index) => {
+            const stars = card.querySelectorAll('.fa-star');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stars.forEach((star, i) => {
+                            setTimeout(() => {
+                                star.style.opacity = '1';
+                                star.style.transform = 'scale(1.2)';
+                                setTimeout(() => {
+                                    star.style.transform = 'scale(1)';
+                                }, 200);
+                            }, i * 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            stars.forEach(star => {
+                star.style.opacity = '0';
+                star.style.transform = 'scale(0.5)';
+                star.style.transition = 'all 0.3s ease';
+            });
+            
+            observer.observe(card);
+        });
+    }
+
+    // Scroll animation trigger
+    function initScrollAnimations() {
+        const animateOnScroll = (elements, animationClass) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(animationClass);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        // Initialize all animation types
+        animateOnScroll(document.querySelectorAll('.fade-in'), 'animate');
+        animateOnScroll(document.querySelectorAll('.slide-in-left'), 'animate');
+        animateOnScroll(document.querySelectorAll('.slide-in-right'), 'animate');
+        animateOnScroll(document.querySelectorAll('.scale-in'), 'animate');
+        animateOnScroll(document.querySelectorAll('.bounce-in'), 'animate');
+        animateOnScroll(document.querySelectorAll('.section-fade-in'), 'show');
+    }
+
+    // Navigation interaction safely registered after DOM ready
+    document.addEventListener('DOMContentLoaded', function () {
+        initTextReveal();
+        initProductCarousel();
+        initFloatingCards();
+        initTestimonialReveal();
+        initNavClickAnimations();
+        initScrollAnimations();
+        
+        const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+        function clearActive() {
+            navLinks.forEach(el => {
+                el.classList.remove('active');
+                el.classList.add('text-gray-500');
+                el.classList.remove('text-gray-900');
+            });
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                const href = link.getAttribute('href') || '';
+                if (!href.startsWith('#')) return;
+
+                e.preventDefault();
+                
+                link.classList.add('click-bounce');
+                setTimeout(() => {
+                    link.classList.remove('click-bounce');
+                }, 300);
+                
+                clearActive();
+                link.classList.add('active');
+                link.classList.remove('text-gray-500');
+                link.classList.add('text-gray-900');
+
+                const target = document.querySelector(href);
+                if (target) {
+                    setTimeout(() => {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 150);
+                    history.replaceState(null, '', href);
+                }
+            });
+        });
+
+        // Throttled scroll listener to update active nav item
+        let ticking = false;
+        window.addEventListener('scroll', function () {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    const scrollPosition = window.scrollY + 120;
+                    document.querySelectorAll('section[id]').forEach(section => {
+                        const top = section.offsetTop;
+                        const height = section.offsetHeight;
+                        const id = section.getAttribute('id');
+                        if (scrollPosition >= top && scrollPosition < top + height) {
+                            clearActive();
+                            const match = document.querySelector('.nav-link[href="#' + id + '"]');
+                            if (match) {
+                                match.classList.add('active');
+                                match.classList.remove('text-gray-500');
+                                match.classList.add('text-gray-900');
+                            }
+                        }
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Initial highlight
+        (function initialHighlight() {
+            const hash = location.hash;
+            if (hash) {
+                const match = document.querySelector('.nav-link[href="' + hash + '"]');
+                if (match) {
+                    clearActive();
+                    match.classList.add('active');
+                    match.classList.remove('text-gray-500');
+                    match.classList.add('text-gray-900');
+                }
+            }
+        })();
+    });
+</script>
+</body>
+</html>
